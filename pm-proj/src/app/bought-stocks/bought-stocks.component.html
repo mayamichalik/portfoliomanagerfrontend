@@ -1,0 +1,26 @@
+<div id="bought-stocks-container">
+    <mat-accordion>
+      <div class="stock-container" *ngFor="let d of data">
+        <mat-expansion-panel class="stock-expansion-panel">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="stock-symbol">
+              {{d.stock.ticker_symbol}}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="stock-name-container">
+            <h5 class="stock-name">{{d.stock.stock_name}}</h5>
+            <div class="spacer"></div>
+          </div>
+          <div class="stock-share-button-container"> 
+            <h5>Your share:&nbsp;</h5>
+            <h5 id="stock-share-" [ngClass]="{gain: d.hasGained, loss: !d.hasGained}">
+              {{d.worth | currency}}
+            </h5>
+            <div class="spacer"></div>
+            <button mat-raised-button color="warn" (click)="startSellTransation(d.stock)">Sell</button>
+          </div>
+        </mat-expansion-panel>
+        <mat-divider></mat-divider>
+      </div>
+    </mat-accordion>
+</div>

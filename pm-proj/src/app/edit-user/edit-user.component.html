@@ -1,0 +1,23 @@
+<section mat-card__title id="titlesec">
+    <h1 mat-dialog-title id="title">EDIT USER</h1>
+  </section>
+  
+  <div mat-dialog-content>
+    <section id="userdetail">
+
+        <h5 class="label">Full Name:</h5>
+        <input  required="true" [(ngModel)]="user.fullname" type="string"> <!-- (ngModelChange)="validateAccount()"> -->
+
+        <h5 class="label">Email:</h5>
+        <input  required="true" [(ngModel)]="user.email" type="email"> <!-- (ngModelChange)="validateAccount()"> -->
+    
+        
+        <h5 class="label">Phone:</h5>
+        <input  required="true" [(ngModel)]="user.phone_number" type="tel"> <!-- (ngModelChange)="validateAccount()"> -->
+    </section>
+  </div>
+  <div mat-dialog-actions id="actions">
+    <button mat-button (click)="onCancelClick()">Cancel</button>
+    <button mat-button id="confirm" (click)="onSaveClick()">Save</button>
+  </div>
+  

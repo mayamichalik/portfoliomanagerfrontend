@@ -1,0 +1,29 @@
+<section id="generalInfo">
+    <div id="stockInfo">
+        <div id="stockInfoContainer">
+            <div id="watchlistBtn">
+                <h4>{{ticker}}</h4>
+                <button (click)="toggleWatchList()" [color]="addedToWatchList ? 'accent' : ''" mat-icon-button #button>
+                    <mat-icon>star_border</mat-icon>
+                </button>
+            </div>
+            <p class="subtitle1" id="companyName">{{companyName}}</p>
+            <p class="subtitle1"><b>{{country}} - {{currency}}</b></p>
+        </div>
+        <div id="priceInfoContainer" [ngClass]="{gain: percentageChange > 0, loss: percentageChange < 0}">
+            <!-- current live price -->
+            <h5>{{price}}</h5>
+            <!-- loss or gain -->
+            <div id="priceChangeContainer">
+                <mat-icon *ngIf = "percentageChange < 0" >arrow_drop_down</mat-icon>
+                <mat-icon *ngIf = "percentageChange > 0" >arrow_drop_up</mat-icon>
+                <!-- TODO: figure out how to calculate this -->
+                <p>{{percentageChange * 100 | number}}%</p>
+            </div>
+        </div>
+    </div>
+    <div id="btn-container">
+        <button class="sell" *ngIf="isBought" (click)="sellStock()" mat-button>Sell Stock</button>
+        <button class="buy" (click)="buyStock()" mat-button>Buy Stock</button>
+    </div>
+</section>

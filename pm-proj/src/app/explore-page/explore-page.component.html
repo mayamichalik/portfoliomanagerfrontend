@@ -1,0 +1,7 @@
+<section>
+    <!-- TODO: add search bar here -->
+    <app-search-bar (searchResult)="onSearchResultChange($event)"></app-search-bar>
+
+    <app-general-stock-info *ngIf="searchResult.symbol != ''" [ticker]="searchResult.symbol" [companyName]="searchResult.name" [country]="searchResult.country" [currency]="searchResult.currency"></app-general-stock-info>
+    <app-stock-research *ngIf="searchResult.symbol != ''" [ticker]="searchResult.symbol"></app-stock-research>
+</section>

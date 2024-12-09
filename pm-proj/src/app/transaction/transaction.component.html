@@ -1,0 +1,30 @@
+<section mat-card__title id="titlesec">
+  <h1 *ngIf="isBuyTransaction" mat-dialog-title id="title">PURCHASE</h1>
+  <h1 *ngIf="!isBuyTransaction" mat-dialog-title id="title">SALE</h1>
+</section>
+
+<div mat-dialog-content>
+  <section id="purchasedet">
+
+    <h5 class="label">Account:</h5>
+    <mat-select id="select" [(ngModel)]="selectedAccount" (ngModelChange)="validateTransaction()">
+      <mat-option>None</mat-option>
+      <mat-option *ngFor="let account of accounts" [value]="account">{{account.accountType}} - {{account.balance | currency}}</mat-option>
+    </mat-select>
+
+    <h5 class="label">Number of Shares:</h5>
+    <input matInput [(ngModel)]="numShares" value="1" type="number" min="0" step="1" (ngModelChange)="validateTransaction()">
+  </section>
+  <section id="total_calc">
+    <h5 class="label">Total:</h5>
+    <h5 id="total">{{price | currency}} x {{numShares}}</h5>
+    <h5 id="totalp"><b>{{total | currency}}</b></h5>
+  </section>
+</div>
+<div mat-dialog-actions id="actions">
+  <div *ngIf="sufficientBuyAlert" class="text-alert">! Not enough money in account</div>
+  <div *ngIf="sufficientSellAlert" class="text-alert">! You cannot sell more shares than you own</div>
+  <button mat-button (click)="onCancelClick()">Cancel</button>
+  <button *ngIf="isBuyTransaction" mat-button id="buy_button" [disabled]="!isValidTransaction" (click)="onConfirmClick()">BUY</button>
+  <button *ngIf="!isBuyTransaction" mat-button id="sell_button" [disabled]="!isValidTransaction" (click)="onConfirmClick()">SELL</button>
+</div>

@@ -1,0 +1,13 @@
+.charts_container {
+    padding: 15px 15px;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.date_range_container {
+    display: flex;
+    align-items: flex-start;
+    flex-shrink: 0;
+}

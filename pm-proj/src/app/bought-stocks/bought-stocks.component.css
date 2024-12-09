@@ -1,0 +1,21 @@
+.spacer {
+    flex: 1 1 auto;
+}
+
+.stock-name-container, .stock-share-button-container {
+    display: flex;
+    align-items: flex-start;
+    flex-shrink: 0;
+}
+
+.stock-symbol {
+    font-weight: lighter;
+    color: black;
+}
+
+.gain {
+    color: green;
+}
+.loss {
+    color: red;
+}

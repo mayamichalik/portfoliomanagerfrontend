@@ -1,0 +1,27 @@
+<div class="charts_container">
+  <div class="date_range_container">
+    <mat-button-toggle-group id="buttonTogglGroup" name="fontStyle" aria-label="Font Style" [value]="button_toggle_val"
+    (change)="buttonToggleChange($event)">
+      <mat-button-toggle value="week">1W</mat-button-toggle>
+      <mat-button-toggle value="month">1M</mat-button-toggle>
+      <mat-button-toggle value="six_month">6M</mat-button-toggle>
+      <mat-button-toggle value="year">1Y</mat-button-toggle>
+    </mat-button-toggle-group>
+    <div class="spacer"></div>
+    <mat-form-field>
+        <mat-label>Enter a date range</mat-label>
+        <mat-date-range-input matBadge="!" [matBadgeHidden]="validRange" 
+          matTooltip="Invalid Date Range" [matTooltipDisabled]="validRange" 
+          [rangePicker]="picker">
+          <input matStartDate [(ngModel)]="range_start" placeholder="Start date" #dateRangeStart>
+          <input matEndDate [(ngModel)]="range_end" placeholder="End date" #dateRangeEnd
+          (dateChange)="dateRangeChange(dateRangeStart, dateRangeEnd)">
+        </mat-date-range-input>
+        <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
+  </div>
+
+  <canvasjs-chart [options]="chartOptions" [styles]="{width: '100%', height:'360px'}" (chartInstance)="getChartInstance($event)"></canvasjs-chart> 
+</div>

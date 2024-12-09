@@ -1,0 +1,11 @@
+#content {
+    background: url("https://thumbs.dreamstime.com/z/candlestick-chart-financial-market-vector-illustration-grey-background-forex-trading-graphic-concept-107803524.jpg?w=992"), lightgray 50% / cover no-repeat;
+    min-height: 100%;
+    display: flex;
+    align-items: flex-start;
+}
+
+#content-container {
+    margin: 0px 220px;
+    width: 100%;
+}

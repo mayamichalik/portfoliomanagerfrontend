@@ -1,0 +1,12 @@
+<section id="portfolioContainer">
+    <div id="userInfo">
+        <!-- TODO: add user data, accounts carousel, and add and delete account buttons -->
+        <app-user></app-user>
+        <div id="accountBtnContainer">
+            <button (click)="openAddDialog()" class="accountBtn" mat-button>Add Account</button>
+            <button (click)="openDeleteDialog()" class="accountBtn" mat-button>Delete Account</button>
+        </div>
+    </div>
+    <hr>
+    <app-bought-stocks></app-bought-stocks>
+</section>

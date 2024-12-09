@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+h3 {
+    font-size: 48px !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+}
+
+h4 {
+    font-size: 34px !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.25px !important;
+}
+
+.subtitle1 {
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0.15px;
+}
+
+h5 {
+    font-size: 23px !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+}

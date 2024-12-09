@@ -1,0 +1,40 @@
+<section mat-card__title id="titlesec">
+    <h1 mat-dialog-title id="title">DELETE ACCOUNT</h1>
+  </section>
+
+  <div mat-dialog-content>
+    <section id="accdetail">
+  
+      <h5 class="label">Account:</h5>
+      <mat-select class="select" [(ngModel)]="selectedAccount" (ngModelChange)="validateAccount()">
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let account of accounts" [value]="account">{{account.accountType}} - {{account.balance | currency}}</mat-option>
+      </mat-select>
+    </section>
+
+    <!-- FUTURE ADDITION -->
+    <!-- <section>
+        <h5 class="label">Enter Password:</h5>
+        <mat-form-field>
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+        
+        <h5 class="label">Confirm Password:</h5>
+        <mat-form-field>
+            <mat-label>confirm your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+    </section> -->
+  </div>
+  <div mat-dialog-actions id="actions">
+    <button mat-button (click)="onCancelClick()">Cancel</button>
+    <button id="button" mat-button mat-dialog-close [disabled]="!validAccount" (click)="onDeleteClick()">DELETE</button>
+  </div>
+  

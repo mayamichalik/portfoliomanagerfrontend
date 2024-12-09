@@ -1,0 +1,28 @@
+<section mat-card__title id="titlesec">
+    <h1 mat-dialog-title id="title">ADD ACCOUNT</h1>
+  </section>
+  
+  <div mat-dialog-content>
+    <section id="accdetail">
+  
+      <h5 class="label">Account Type:</h5>
+      <mat-select class="select" [(ngModel)]="accountType" (ngModelChange)="validateAccount()">
+        <mat-option value="CHEQ">CHEQ</mat-option>
+        <mat-option value="SAV">SAV</mat-option>
+      </mat-select>
+  
+      <h5 class="label">Currency:</h5>
+        <mat-select class="select" [(ngModel)]="currency" (ngModelChange)="validateAccount()">
+          <mat-option value="USD">USD</mat-option>
+        </mat-select>
+    </section>
+    <section>
+      <h5 class="label">Account Balance:</h5>
+      <input matInput [(ngModel)]="balance" value="1" type="number" min="0" step="0.01" (ngModelChange)="validateAccount()">
+    </section>
+  </div>
+  <div mat-dialog-actions id="actions">
+    <button mat-button (click)="onCancelClick()">Cancel</button>
+    <button mat-button id="confirm" mat-dialog-close [disabled]="!validAccount" (click)="onAddClick()">ADD</button>
+  </div>
+  
